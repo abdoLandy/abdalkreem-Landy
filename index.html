@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تطبيق عبدالكريم لندي للرياضة</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+            direction: rtl;
+        }
+        header {
+            background-color: #1e90ff;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        .exercise {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 12px 0;
+        }
+        .exercise:last-child {
+            border-bottom: none;
+        }
+        .exercise img {
+            width: 100px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-left: 15px;
+            border: 1px solid #ccc;
+        }
+        .details {
+            flex-grow: 1;
+        }
+        .details h3 {
+            margin: 0 0 6px 0;
+            font-size: 20px;
+            color: #333;
+        }
+        .details p {
+            margin: 0;
+            color: #555;
+        }
+        footer {
+            text-align: center;
+            margin: 30px 0;
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>تطبيق عبدالكريم لندي للرياضة</header>
+    <div class="container" id="exerciseList">
+        <!-- التمارين ستظهر هنا -->
+    </div>
+    <footer>تم إنشاء التطبيق بواسطة عبدالكريم لندي</footer>
+
+    <script>
+        const exercises = [
+            {
+                name: "تمرين الضغط",
+                description: "تقوية عضلات الصدر والذراعين.",
+                image: "https://i.imgur.com/4AiXzf8.jpeg"
+            },
+            {
+                name: "تمرين القرفصاء",
+                description: "تقوية عضلات الفخذ والأرداف.",
+                image: "https://i.imgur.com/I9Z7H54.jpeg"
+            },
+            {
+                name: "تمرين البلانك",
+                description: "تقوية عضلات البطن والظهر.",
+                image: "https://i.imgur.com/R3x3vFv.jpeg"
+            }
+        ];
+
+        const container = document.getElementById('exerciseList');
+
+        exercises.forEach(exercise => {
+            const div = document.createElement('div');
+            div.className = 'exercise';
+
+            const img = document.createElement('img');
+            img.src = exercise.image;
+            img.alt = exercise.name;
+
+            const details = document.createElement('div');
+            details.className = 'details';
+
+            const title = document.createElement('h3');
+            title.textContent = exercise.name;
+
+            const desc = document.createElement('p');
+            desc.textContent = exercise.description;
+
+            details.appendChild(title);
+            details.appendChild(desc);
+
+            div.appendChild(img);
+            div.appendChild(details);
+
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>
